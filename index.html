@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST-Search | SpeedTehnology</title>
+    <style>
+        body { 
+            background: #0e1621; 
+            color: white; 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+        }
+        .container {
+            text-align: center;
+            background: #17212b;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #5288c1;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            width: 320px;
+        }
+        .logo { font-size: 24px; font-weight: bold; color: #5288c1; margin-bottom: 20px; letter-spacing: 3px; }
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background: #242f3d;
+            color: white;
+            margin-bottom: 15px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background: #5288c1;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background: #649ad4; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">ST-SEARCH ⚡️</div>
+        <input type="text" id="q" placeholder="Поиск в интернете..." autofocus>
+        <button onclick="search()">НАЙТИ</button>
+        <p style="font-size: 9px; opacity: 0.4; margin-top: 20px;">© SpeedTehnology (ST) - Без посредников</p>
+    </div>
+
+    <script>
+        function search() {
+            const query = document.getElementById('q').value;
+            if (query) {
+                // ПРЯМОЙ ВЫСТРЕЛ: Открываем результаты в новой вкладке
+                // Это обходит все блокировки окон (iframe), потому что вкладка - это отдельный процесс
+                window.open("https://duckduckgo.com" + encodeURIComponent(query), "_blank");
+            }
+        }
+        // Запуск по нажатию Enter
+        document.getElementById('q').addEventListener("keypress", (e) => {
+            if (e.key === "Enter") search();
+        });
+    </script>
+</body>
+</html>
