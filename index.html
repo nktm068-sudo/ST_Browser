@@ -61,13 +61,15 @@
 
     <script>
         function search() {
-            const query = document.getElementById('q').value;
-            if (query) {
-                // ПРЯМОЙ ВЫСТРЕЛ: Открываем результаты в новой вкладке
-                // Это обходит все блокировки окон (iframe), потому что вкладка - это отдельный процесс
-                window.open("https://duckduckgo.com" + encodeURIComponent(query), "_blank");
-            }
-        }
+    const query = document.getElementById('q').value; // Берем то, что ты вбил (например, Goose)
+    if (query) {
+        // ТВОЯ НОВАЯ ЛЮТАЯ ССЫЛКА С ПАРАМЕТРАМИ
+        const url = "https://duckduckgo.com/?ia=web&origin=funnel_home_website&t=h_&q=" + encodeURIComponent(query);
+        
+        // Открываем в новом окне, чтобы не было ошибок соединения
+        window.open(url, "_blank");
+    }
+}
         // Запуск по нажатию Enter
         document.getElementById('q').addEventListener("keypress", (e) => {
             if (e.key === "Enter") search();
